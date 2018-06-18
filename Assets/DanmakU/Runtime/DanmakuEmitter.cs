@@ -27,7 +27,6 @@ namespace DanmakU
             set { if (value != TeamNo) set.Pool.TeamNo = TeamNo = value; }
         }
         
-
         protected float timer;
 
         protected DanmakuConfig config;
