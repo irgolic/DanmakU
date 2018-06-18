@@ -6,8 +6,7 @@ using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace DanmakU {
-  
-internal interface IJobBatchedFor {
+  public interface IJobBatchedFor {
   void Execute(int start, int end);
 }
 
@@ -32,7 +31,7 @@ internal static class BatchedForJobStruct<T> where T : struct, IJobBatchedFor {
 
 }
 
-internal unsafe static class IJobBatchedForExtensions {
+public unsafe static class IJobBatchedForExtensions {
 
   public static JobHandle ScheduleBatch<T>(this T jobData, 
                                            int arrayLength, 
