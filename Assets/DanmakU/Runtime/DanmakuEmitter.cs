@@ -22,10 +22,12 @@ namespace DanmakU
 
         //Editor OK   **WARNING** Do not access directly; use GetTeamNo and SetTeamNo
         public int TeamNo;
-        public int getTeamNo()
+
+        public int GetTeamNo()
         {
             return TeamNo;
         }
+
         public void SetTeamNo(int newTeam)
         {
             if (newTeam != TeamNo)

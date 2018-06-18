@@ -7,7 +7,7 @@ namespace DanmakU
     public class TeamCollider : MonoBehaviour
     {
         public DanmakuCollider Collider;
-        public DanmakuEmitter Emitter;
+        public int TeamNo;
 
         //todo: make a thorough pass focusing on accessibility
         //todo: thorough update to danmaku
@@ -35,32 +35,18 @@ namespace DanmakU
             }
         }
 
-
         void getHit()
         {
             gameObject.SetActive(false);
         }
 
-        // Update is called once per frame
-        // void Update()
-        // {
-        /*if (invulnTimer > 0f)
-        {
-          invulnTimer -= Time.deltaTime;
-          if (invulnTimer < 0f)
-          {
-            invulnTimer = 0f;
-            //sprite.color = Color.white;
-          }
-        }*/
-        // }
 
         void OnDanmakuCollision(DanmakuCollisionList collisions)
         {
             //if (emitter)
             foreach (var collision in collisions)
             {
-                if (collision.Danmaku.Pool.TeamNo != Emitter.set.Pool.TeamNo)
+                if (collision.Danmaku.Pool.TeamNo != TeamNo)
                 {
                     collision.Danmaku.Destroy();
                     getHit();
