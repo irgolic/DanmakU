@@ -9,23 +9,11 @@ namespace DanmakU
   {
 
     public DanmakuCollider Collider;
-    DanmakuEmitter emitter;
+    public DanmakuEmitter Emitter;
 
     //todo: make a thorough pass focusing on accessibility
     //todo: thorough update to danmaku
     
-    ///How much time this unit has left invulnerable
-    //private float invulnTimer = 0f;
-    //How much health this unit is capable of at perfect condition
-    public int maxHealth;
-    //How much health this unit currently contains
-    private int curHealth;
-
-    void OnStart()
-    {
-      curHealth = maxHealth;
-    }
-
     /// <summary>
     /// This function is called when the object becomes enabled and active.
     /// </summary>
@@ -36,7 +24,6 @@ namespace DanmakU
         Debug.Log("Subscribed");
         Collider.OnDanmakuCollision += OnDanmakuCollision;
       }
-      emitter = GetComponent<DanmakuEmitter>();
     }
 
     /// <summary>
@@ -51,9 +38,9 @@ namespace DanmakU
     }
 
 
-    void takeDamage(int amount_damage)
+    void getHit()
     {
-      curHealth -= amount_damage;
+      gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -75,10 +62,10 @@ namespace DanmakU
       //if (emitter)
       foreach (var collision in collisions)
       {
-        if (collision.Danmaku.Pool.TeamNo != emitter.set.Pool.TeamNo)
+        if (collision.Danmaku.Pool.TeamNo != Emitter.set.Pool.TeamNo)
         {
           collision.Danmaku.Destroy();
-          takeDamage(collision.Danmaku.Pool.Damage);
+          getHit();
         }
       }
     }
