@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Unity.Collections.LowLevel.Unsafe;
 
@@ -131,7 +132,7 @@ public class DanmakuCollider : MonoBehaviour {
   }
 
   internal static void FlushAll() {
-    foreach (var collider in Colliders) {
+    foreach (var collider in Colliders.ToList()) {
       collider.Flush();
     }
   }
