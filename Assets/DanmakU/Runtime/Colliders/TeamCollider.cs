@@ -9,9 +9,6 @@ namespace DanmakU
         public DanmakuCollider Collider;
         public int TeamNo;
 
-        //todo: make a thorough pass focusing on accessibility
-        //todo: thorough update to danmaku
-
         /// <summary>
         /// This function is called when the object becomes enabled and active.
         /// </summary>
