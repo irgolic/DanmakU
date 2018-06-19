@@ -40,7 +40,6 @@ namespace DanmakU
 
         void OnDanmakuCollision(DanmakuCollisionList collisions)
         {
-            //if (emitter)
             foreach (var collision in collisions)
             {
                 if (collision.Danmaku.Pool.TeamNo != TeamNo)
