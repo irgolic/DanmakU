@@ -20,17 +20,16 @@ namespace DanmakU
         public DanmakuSet set { get; private set; }
         public bool isFiring { get; set; }
 
-        public int TeamNo;
-        public int GetTeamNo()
+        [SerializeField] private int _teamNo;
+        public int TeamNo
         {
-            return TeamNo;
+            get { return _teamNo; }
+            set
+            {
+                if (value != _teamNo) set.Pool.TeamNo = _teamNo = value;
+            }
         }
 
-        public void SetTeamNo(int value)
-        {
-            if (value != TeamNo) set.Pool.TeamNo = TeamNo = value;
-        }
-        
         float timer;
 
         DanmakuConfig config;
@@ -49,7 +48,7 @@ namespace DanmakU
             }
 
             set = CreateSet(DanmakuType);
-            set.Pool.TeamNo = TeamNo;
+            set.Pool.TeamNo = _teamNo;
             set.AddModifiers(GetComponents<IDanmakuModifier>());
             fireable = Arc.Of(Line).Of(set);
             isFiring = true;
@@ -59,11 +58,11 @@ namespace DanmakU
         {
             timer = 0f;
         }
-        
-		/// <summary>
-		/// Update is called every frame, if the MonoBehaviour is enabled.
-		/// </summary>
-		void Update()
+
+        /// <summary>
+        /// Update is called every frame, if the MonoBehaviour is enabled.
+        /// </summary>
+        void Update()
         {
             if (fireable == null) return;
             var deltaTime = Time.deltaTime;
@@ -89,6 +88,4 @@ namespace DanmakU
             }
         }
     }
-
-
 }
