@@ -6,8 +6,8 @@ using UnityEngine;
 namespace DanmakU {
   
 [AddComponentMenu("DanmakU/Danmaku Emitter")]
-public class DanmakuEmitter : DanmakuBehaviour
-{
+public class DanmakuEmitter : DanmakuBehaviour {
+  
   public DanmakuPrefab DanmakuType;
 
   public Range Speed = 5f;
