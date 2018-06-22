@@ -194,6 +194,15 @@ public class DanmakuManager : MonoBehaviour {
     }
 
   }
+  
+  public void Reset() {
+    foreach (var group in RendererGroups.Values) {
+      foreach (var set in group.Sets)
+      {
+        set.Pool.Clear();
+      }
+    }
+  }
 
 }
 
