@@ -10,6 +10,8 @@ namespace DanmakU {
 /// </summary>
 public class DanmakuCollider : MonoBehaviour {
 
+  public int Team;
+
   struct ColliderData {
     public Bounds2D Bounds;
     public int LayerMask;
@@ -122,7 +124,7 @@ public class DanmakuCollider : MonoBehaviour {
           RaycastHit = raycastCache[j]
         };
         foreach (var dCollider in danmakuColliders) {
-          if (dCollider != null && dCollider.isActiveAndEnabled) {
+          if (dCollider != null && dCollider.isActiveAndEnabled && pool.TeamNo != dCollider.Team) {
             dCollider.AddDanmaku(collision);
           }
         }
