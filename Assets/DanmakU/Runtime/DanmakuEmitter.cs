@@ -30,16 +30,16 @@ namespace DanmakU
             }
         }
 
-        protected float timer;
+        float timer;
 
-        protected DanmakuConfig config;
-        protected IFireable fireable;
+        DanmakuConfig config;
+        IFireable fireable;
 
         /// <summary>
         /// Start is called on the frame when a script is enabled just before
         /// any of the Update methods is called the first time.
         /// </summary>
-        protected void Start()
+        void Start()
         {
             if (DanmakuType == null)
             {
