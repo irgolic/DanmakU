@@ -14,7 +14,7 @@ namespace DanmakU {
 /// </remarks>
 public abstract class DanmakuBehaviour : MonoBehaviour {
 
-  List<DanmakuSet> OwnedDanmakuSets;
+  protected List<DanmakuSet> OwnedDanmakuSets;
 
   /// <summary>
   /// Create a <see cref="DanmakU.DanmakuSet"/> from a prefab.
