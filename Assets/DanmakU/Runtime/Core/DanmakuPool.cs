@@ -105,7 +105,7 @@ namespace DanmakU
         public float ColliderRadius;
 
         internal NativeArray<float> Times;
-        internal NativeArray<DanmakuState> InitialStates;
+        public NativeArray<DanmakuState> InitialStates;
 
         /// <summary>
         /// The array of all world positions of <see cref="DanmakU.Danmaku"/> in the pool.
